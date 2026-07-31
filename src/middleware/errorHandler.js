@@ -20,10 +20,6 @@ function errorHandler(err, req, res, next) {
   const message = isApiError ? err.message : 'Internal server error';
 
   if (!isApiError) {
-    // Handle malformed JSON from `express.json()` as a 400 Bad Request
-    if ((err.type === 'entity.parse.failed') || (err instanceof SyntaxError && err.status === 400)) {
-      return res.status(400).json({ success: false, message: 'Invalid JSON payload' });
-    }
     // Unexpected/programming errors: log the full stack for debugging,
     // but never leak internal details to the client.
     // eslint-disable-next-line no-console

@@ -44,6 +44,8 @@ your-repo/
 
 ## Installation
 
+Requires Node.js 18+.
+
 ```bash
 npm install
 ```
